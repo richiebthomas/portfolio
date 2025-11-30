@@ -7,6 +7,7 @@ A pure HTML/CSS portfolio with a modern "shadcn-like" dark theme.
 - `index.html`: Main portfolio page containing Bio, Experience Timeline, Projects, Skills, and Education.
 - `feed.html`: A blog feed page (optional).
 - `experience/`: Contains detailed pages for each work experience.
+- `projects/`: Contains detailed pages for each project.
 - `posts/`: Directory for blog posts.
 - `css/style.css`: Main styles.
 
@@ -17,6 +18,12 @@ A pure HTML/CSS portfolio with a modern "shadcn-like" dark theme.
 2.  Open `index.html`.
 3.  Find the `<div class="timeline">` section.
 4.  Add a new `.timeline-item` block pointing to your new file.
+
+### Adding/Editing Projects
+1.  To add a new project, create a new HTML file in the `projects/` folder.
+2.  Open `index.html`.
+3.  Find the **Projects** section.
+4.  Add a new `<a href="projects/your-new-project.html" class="post-item">` block.
 
 ### Adding a Blog Post
 1.  Create a new HTML file in the `posts/` folder.

@@ -13,7 +13,6 @@
             <nav>
                 <a href="index.html" class="active">Home</a>
                 <a href="feed.html">Feed</a>
-                
             </nav>
         </header>
 
@@ -31,58 +30,73 @@
                 </div>
             </section>
 
+            <section id="feed-preview-section" style="margin-bottom: 4rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h2>Latest Posts</h2>
+                    <a href="feed.html" style="font-size: 0.875rem; color: var(--muted); transition: color 0.2s;" onmouseover="this.style.color='var(--foreground)'" onmouseout="this.style.color='var(--muted)'">View all →</a>
+                </div>
+                <div id="feed-preview-container" class="horizontal-scroll-container">
+                    <!-- Posts will be loaded here -->
+                    <div class="post-card" style="justify-content: center; align-items: center; color: var(--muted);">
+                        Loading posts...
+                    </div>
+                </div>
+            </section>
+
             <section style="margin-bottom: 4rem;">
                 <h2>Experience</h2>
-                <div class="timeline">
-                    <!-- IISER -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <a href="experience/iiser.html" class="timeline-content">
-                            <div class="timeline-date">July 2025 – Present</div>
-                            <div class="timeline-title">Research Intern</div>
-                            <div class="timeline-company">IISER, Mohali</div>
-                        </a>
-                    </div>
+                <div class="timeline" id="experience-timeline">
+                    <ol>
+                        <!-- IISER -->
+                        <li>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">July 2025 – Present</div>
+                                <a href="experience/iiser.html" class="timeline-title">Research Intern</a>
+                                <div class="timeline-company">IISER, Mohali</div>
+                            </div>
+                        </li>
 
-                    <!-- Bayside Sports -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <a href="experience/bayside.html" class="timeline-content">
-                            <div class="timeline-date">March 2025 – Sept 2025</div>
-                            <div class="timeline-title">Full Stack Web Developer Intern</div>
-                            <div class="timeline-company">Bayside Sports, Bandra</div>
-                        </a>
-                    </div>
+                        <!-- Bayside Sports -->
+                        <li>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">March 2025 – Sept 2025</div>
+                                <a href="experience/bayside.html" class="timeline-title">Full Stack Web Developer Intern</a>
+                                <div class="timeline-company">Bayside Sports, Bandra</div>
+                            </div>
+                        </li>
 
-                    <!-- Sports Mentoring Infusion -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <a href="experience/smi.html" class="timeline-content">
-                            <div class="timeline-date">July 2025 – July 2025</div>
-                            <div class="timeline-title">Backend Developer Intern</div>
-                            <div class="timeline-company">Sports Mentoring Infusion, Mumbai</div>
-                        </a>
-                    </div>
+                        <!-- Sports Mentoring Infusion -->
+                        <li>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">July 2025 – July 2025</div>
+                                <a href="experience/smi.html" class="timeline-title">Backend Developer Intern</a>
+                                <div class="timeline-company">Sports Mentoring Infusion, Mumbai</div>
+                            </div>
+                        </li>
 
-                    <!-- GetFly Technologies -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <a href="experience/getfly.html" class="timeline-content">
-                            <div class="timeline-date">June 2025 – July 2025</div>
-                            <div class="timeline-title">Android Developer Intern</div>
-                            <div class="timeline-company">GetFly Technologies, Sion</div>
-                        </a>
-                    </div>
+                        <!-- GetFly Technologies -->
+                        <li>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">June 2025 – July 2025</div>
+                                <a href="experience/getfly.html" class="timeline-title">Android Developer Intern</a>
+                                <div class="timeline-company">GetFly Technologies, Sion</div>
+                            </div>
+                        </li>
 
-                    <!-- FCRIT -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <a href="experience/fcrit.html" class="timeline-content">
-                            <div class="timeline-date">March 2024 – April 2025</div>
-                            <div class="timeline-title">PHP Developer Intern</div>
-                            <div class="timeline-company">FCRIT, Vashi</div>
-                        </a>
-                    </div>
+                        <!-- FCRIT -->
+                        <li>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">March 2024 – April 2025</div>
+                                <a href="experience/fcrit.html" class="timeline-title">PHP Developer Intern</a>
+                                <div class="timeline-company">FCRIT, Vashi</div>
+                            </div>
+                        </li>
+                    </ol>
                 </div>
             </section>
 
@@ -152,5 +166,87 @@
             </section>
         </main>
     </div>
+
+    <script>
+        async function loadPreviewPosts() {
+            const container = document.getElementById('feed-preview-container');
+            const section = document.getElementById('feed-preview-section');
+            
+            try {
+                const response = await fetch('posts.json');
+                if (!response.ok) throw new Error('Failed to load posts list');
+                
+                const posts = await response.json();
+                
+                if (posts.length === 0) {
+                    section.style.display = 'none';
+                    return;
+                }
+
+                const recentPosts = posts.slice(0, 5);
+
+                container.innerHTML = recentPosts.map(post => `
+                    <a href="${post.path}" class="post-card">
+                        <div class="post-card-title">${post.title}</div>
+                        <div class="post-card-date">${post.date}</div>
+                        <div class="post-card-desc">
+                            ${post.description || ''}
+                        </div>
+                    </a>
+                `).join('');
+            } catch (error) {
+                console.error(error);
+                container.innerHTML = `
+                    <a href="posts/welcome.html" class="post-card">
+                        <div class="post-card-title">Welcome to my blog</div>
+                        <div class="post-card-date">Nov 30, 2025</div>
+                        <div class="post-card-desc">This is a fallback link because posts.json was not found. Run the generator script!</div>
+                    </a>
+                `;
+            }
+        }
+
+        loadPreviewPosts();
+
+        // Smooth scroll for timeline (desktop only)
+        if (window.innerWidth >= 768) {
+            const timeline = document.getElementById('experience-timeline');
+            if (timeline) {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+
+                timeline.addEventListener('mousedown', (e) => {
+                    // Don't interfere with link clicks
+                    if (e.target.tagName === 'A') return;
+                    
+                    isDown = true;
+                    timeline.style.cursor = 'grabbing';
+                    startX = e.pageX - timeline.offsetLeft;
+                    scrollLeft = timeline.scrollLeft;
+                });
+
+                timeline.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    timeline.style.cursor = 'grab';
+                });
+
+                timeline.addEventListener('mouseup', () => {
+                    isDown = false;
+                    timeline.style.cursor = 'grab';
+                });
+
+                timeline.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - timeline.offsetLeft;
+                    const walk = (x - startX) * 1.5;
+                    timeline.scrollLeft = scrollLeft - walk;
+                });
+
+                timeline.style.cursor = 'grab';
+            }
+        }
+    </script>
 </body>
 </html>

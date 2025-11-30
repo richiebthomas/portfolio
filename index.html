@@ -17,7 +17,7 @@
         </header>
 
         <main>
-            <section style="margin-bottom: 4rem;">
+            <section class="section">
                 <h1>Hello, I'm Richie.</h1>
                 <p>
                     I am an Information Technology student at Fr. C. Rodrigues Institute of Technology, Vashi (2022–2026), with a CGPA of 7.42.
@@ -30,10 +30,10 @@
                 </div>
             </section>
 
-            <section id="feed-preview-section" style="margin-bottom: 4rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <section id="feed-preview-section" class="section">
+                <div class="section-header">
                     <h2>Latest Posts</h2>
-                    <a href="feed.html" style="font-size: 0.875rem; color: var(--muted); transition: color 0.2s;" onmouseover="this.style.color='var(--foreground)'" onmouseout="this.style.color='var(--muted)'">View all →</a>
+                    <a href="feed.html" class="link-muted">View all →</a>
                 </div>
                 <div id="feed-preview-container" class="horizontal-scroll-container">
                     <!-- Posts will be loaded here -->
@@ -43,85 +43,84 @@
                 </div>
             </section>
 
-            <section style="margin-bottom: 4rem;">
-                <h2>Experience</h2>
-                <div class="timeline" id="experience-timeline">
-                    <ol>
-                        <!-- IISER -->
-                        <li>
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">July 2025 – Present</div>
-                                <a href="experience/iiser.html" class="timeline-title">Research Intern</a>
-                                <div class="timeline-company">IISER, Mohali</div>
-                            </div>
-                        </li>
+            <section class="section">
+                <div class="section-header">
+                    <h2>Experience</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">July 2025 – Present</div>
+                            <a href="experience/iiser.html" class="timeline-title">Research Intern</a>
+                            <div class="timeline-company">IISER, Mohali</div>
+                        </div>
+                    </div>
 
-                        <!-- Bayside Sports -->
-                        <li>
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">March 2025 – Sept 2025</div>
-                                <a href="experience/bayside.html" class="timeline-title">Full Stack Web Developer Intern</a>
-                                <div class="timeline-company">Bayside Sports, Bandra</div>
-                            </div>
-                        </li>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">March 2025 – Sept 2025</div>
+                            <a href="experience/bayside.html" class="timeline-title">Full Stack Web Developer Intern</a>
+                            <div class="timeline-company">Bayside Sports, Bandra</div>
+                        </div>
+                    </div>
 
-                        <!-- Sports Mentoring Infusion -->
-                        <li>
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">July 2025 – July 2025</div>
-                                <a href="experience/smi.html" class="timeline-title">Backend Developer Intern</a>
-                                <div class="timeline-company">Sports Mentoring Infusion, Mumbai</div>
-                            </div>
-                        </li>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">July 2025</div>
+                            <a href="experience/smi.html" class="timeline-title">Backend Developer Intern</a>
+                            <div class="timeline-company">Sports Mentoring Infusion, Mumbai</div>
+                        </div>
+                    </div>
 
-                        <!-- GetFly Technologies -->
-                        <li>
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">June 2025 – July 2025</div>
-                                <a href="experience/getfly.html" class="timeline-title">Android Developer Intern</a>
-                                <div class="timeline-company">GetFly Technologies, Sion</div>
-                            </div>
-                        </li>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">June 2025 – July 2025</div>
+                            <a href="experience/getfly.html" class="timeline-title">Android Developer Intern</a>
+                            <div class="timeline-company">GetFly Technologies, Sion</div>
+                        </div>
+                    </div>
 
-                        <!-- FCRIT -->
-                        <li>
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-date">March 2024 – April 2025</div>
-                                <a href="experience/fcrit.html" class="timeline-title">PHP Developer Intern</a>
-                                <div class="timeline-company">FCRIT, Vashi</div>
-                            </div>
-                        </li>
-                    </ol>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">March 2024 – April 2025</div>
+                            <a href="experience/fcrit.html" class="timeline-title">PHP Developer Intern</a>
+                            <div class="timeline-company">FCRIT, Vashi</div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <section style="margin-bottom: 4rem;">
-                <h2>Projects</h2>
+            <section class="section">
+                <div class="section-header">
+                    <h2>Projects</h2>
+                </div>
                 <div class="feed-list">
                     <a href="projects/chatapp.html" class="post-item">
                         <div class="post-title">ChatApp - End-to-End Encrypted Messenger</div>
                         <div class="post-date">Flutter, Node.js, E2E Encryption (2025)</div>
-                        <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #a1a1aa;">
+                        <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #a1a1aa; margin-bottom: 0;">
                             Implemented hybrid encryption (X25519 + Ed25519) and Double Ratchet messaging with AES-GCM for military-grade security and perfect forward secrecy.
                         </p>
                     </a>
                     <a href="projects/smi.html" class="post-item">
                         <div class="post-title">SMI - Behavior Management Platform</div>
                         <div class="post-date">React Native, Node.js, PostgreSQL (2025)</div>
-                        <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #a1a1aa;">
+                        <p style="margin-top: 0.5rem; font-size: 0.875rem; color: #a1a1aa; margin-bottom: 0;">
                             Cross-platform system serving multiple user roles with real-time sync, gamified learning features, and analytics.
                         </p>
                     </a>
                 </div>
             </section>
 
-            <section style="margin-bottom: 4rem;">
-                <h2>Technical Skills</h2>
+            <section class="section">
+                <div class="section-header">
+                    <h2>Technical Skills</h2>
+                </div>
                 <div class="skills-list">
                     <span class="skill-tag">JavaScript</span>
                     <span class="skill-tag">Python</span>
@@ -142,30 +141,50 @@
                 </div>
             </section>
 
-            <section style="margin-bottom: 4rem;">
-                <h2>Education</h2>
+            <section class="section">
+                <div class="section-header">
+                    <h2>Education</h2>
+                </div>
                 <div class="post-item">
                     <div class="post-title">Bachelor of Engineering - Information Technology</div>
                     <div class="post-date">2022 – 2026</div>
-                    <p style="margin-top: 0.5rem; color: #e4e4e7;">
+                    <p style="margin-top: 0.5rem; color: #e4e4e7; margin-bottom: 0;">
                         Fr. C. Rodrigues Institute of Technology, Vashi<br>
                         <span style="color: var(--muted); font-size: 0.875rem;">CGPA: 7.42/10.0 (Sem 6)</span>
                     </p>
                 </div>
             </section>
 
-            <section>
-                <h2>Co-Curricular & Volunteering</h2>
+            <section class="section" style="padding-bottom: 2rem;">
+                <div class="section-header">
+                    <h2>Co-Curricular & Volunteering</h2>
+                </div>
                 <ul style="padding-left: 1.2rem; color: #e4e4e7;">
                     <li style="margin-bottom: 0.5rem;">Head of Documentation, Computer Society of India (Managed 500+ participants, automated certs).</li>
                     <li style="margin-bottom: 0.5rem;">Finalist (Top 5), HackQuinox 2024 Hackathon.</li>
                     <li style="margin-bottom: 0.5rem;">Internal Round, Smart India Hackathon 2024.</li>
                     <li style="margin-bottom: 0.5rem;">Organizing Committee Member, ETAMAX 2024.</li>
-                    <li style="margin-bottom: 0.5rem;">Top 20%, BuildWithIndia Hackathon by Google India.</li>
+                    <li style="margin-bottom: 0;">Top 20%, BuildWithIndia Hackathon by Google India.</li>
                 </ul>
             </section>
         </main>
     </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">Richie</div>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/richiebthomas" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/richie-thomas" target="_blank">LinkedIn</a>
+                    <a href="feed.html">Blog</a>
+                </div>
+                <div class="footer-copy">
+                    © 2025 Richie Thomas.
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         async function loadPreviewPosts() {
@@ -207,46 +226,6 @@
         }
 
         loadPreviewPosts();
-
-        // Smooth scroll for timeline (desktop only)
-        if (window.innerWidth >= 768) {
-            const timeline = document.getElementById('experience-timeline');
-            if (timeline) {
-                let isDown = false;
-                let startX;
-                let scrollLeft;
-
-                timeline.addEventListener('mousedown', (e) => {
-                    // Don't interfere with link clicks
-                    if (e.target.tagName === 'A') return;
-                    
-                    isDown = true;
-                    timeline.style.cursor = 'grabbing';
-                    startX = e.pageX - timeline.offsetLeft;
-                    scrollLeft = timeline.scrollLeft;
-                });
-
-                timeline.addEventListener('mouseleave', () => {
-                    isDown = false;
-                    timeline.style.cursor = 'grab';
-                });
-
-                timeline.addEventListener('mouseup', () => {
-                    isDown = false;
-                    timeline.style.cursor = 'grab';
-                });
-
-                timeline.addEventListener('mousemove', (e) => {
-                    if (!isDown) return;
-                    e.preventDefault();
-                    const x = e.pageX - timeline.offsetLeft;
-                    const walk = (x - startX) * 1.5;
-                    timeline.scrollLeft = scrollLeft - walk;
-                });
-
-                timeline.style.cursor = 'grab';
-            }
-        }
     </script>
 </body>
 </html>

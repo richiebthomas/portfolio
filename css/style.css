@@ -8,6 +8,15 @@
   --primary-foreground: #18181b;
   --radius: 0.5rem;
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: 'LED Dot-Matrix', 'Space Mono', 'Courier New', monospace;
+}
+
+@font-face {
+  font-family: 'LED Dot-Matrix';
+  src: url('../fonts/LED Dot-Matrix 400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
@@ -17,14 +26,35 @@
 }
 
 body {
-  background-color: var(--background);
+  background: linear-gradient(to bottom, 
+    #000000 0%, 
+    #000000 40%, 
+    #000000 70%, 
+    #000000 80%, 
+    #000000 100%
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
   color: var(--foreground);
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  pointer-events: none;
+  z-index: 0;
 }
 
 a {
@@ -37,6 +67,8 @@ a {
   max-width: 640px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 header {
@@ -49,9 +81,10 @@ header {
 }
 
 .logo {
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.25rem;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.05em;
+  font-family: var(--font-heading);
 }
 
 nav a {
@@ -66,13 +99,148 @@ nav a:hover, nav a.active {
 }
 
 h1, h2, h3 {
-  letter-spacing: -0.025em;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.08em;
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+}
+
+h3 {
+  font-size: 1.125rem;
+  letter-spacing: 0.1em;
 }
 
 p {
   margin-bottom: 1.5rem;
   color: #e4e4e7;
+}
+
+/* Section with gradient separator */
+.section {
+  position: relative;
+  padding-bottom: 4rem;
+  margin-bottom: 0;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border) 20%,
+    var(--muted) 50%,
+    var(--border) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+.section:last-child::after {
+  display: none;
+}
+
+/* Section header with subtle label */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  margin-bottom: 0;
+  position: relative;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  padding: 4rem 0 2rem 0;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(to bottom, transparent, var(--card) 50%);
+}
+
+.footer-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--font-sans);
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--foreground);
+  opacity: 0.08;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  word-break: break-all;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.03) 2px,
+    rgba(255, 255, 255, 0.03) 4px
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--foreground);
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 1rem;
 }
 
 /* Feed Styles */
@@ -137,7 +305,7 @@ p {
   background-color: var(--card);
 }
 
-/* Timeline Styles - Mobile (Vertical) */
+/* Timeline Styles */
 .timeline {
   position: relative;
   margin: 2rem 0;
@@ -145,23 +313,18 @@ p {
   border-left: 1px solid var(--border);
 }
 
-.timeline ol {
-  list-style: none;
-  padding: 0;
-}
-
-.timeline ol li {
+.timeline-item {
   position: relative;
   margin-bottom: 2rem;
 }
 
-.timeline ol li:last-child {
+.timeline-item:last-child {
   margin-bottom: 0;
 }
 
 .timeline-marker {
   position: absolute;
-  left: -1.85rem;
+  left: -1.85rem; /* Adjust to align with border */
   top: 0.25rem;
   width: 0.75rem;
   height: 0.75rem;
@@ -171,7 +334,7 @@ p {
   transition: background-color 0.2s, border-color 0.2s;
 }
 
-.timeline ol li:hover .timeline-marker {
+.timeline-item:hover .timeline-marker {
   background-color: var(--primary);
   border-color: var(--primary);
 }
@@ -201,12 +364,6 @@ p {
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 0.25rem;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.timeline-title:hover {
-  color: var(--primary);
 }
 
 .timeline-company {
@@ -214,134 +371,12 @@ p {
   color: var(--muted);
 }
 
-/* Desktop Horizontal Zigzag Timeline */
-@media (min-width: 768px) {
-  .timeline {
-    white-space: nowrap;
-    overflow-x: auto;
-    padding-left: 0;
-    border-left: none;
-    margin: 2rem -1rem;
-    padding: 0 1rem;
-    
-    /* Hide scrollbar */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .timeline::-webkit-scrollbar {
-    display: none;
-  }
-
-  .timeline ol {
-    font-size: 0;
-    width: auto;
-    padding: 200px 0;
-    transition: all 0.5s ease;
-    display: inline-block;
-  }
-
-  .timeline ol li {
-    position: relative;
-    display: inline-block;
-    list-style-type: none;
-    width: 160px;
-    height: 2px;
-    background: var(--border);
-    margin-bottom: 0;
-    vertical-align: middle;
-  }
-
-  .timeline ol li:last-child {
-    width: 280px;
-  }
-
-  .timeline ol li:not(:first-child) {
-    margin-left: 14px;
-  }
-
-  .timeline ol li:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 1px);
-    bottom: 0;
-    width: 12px;
-    height: 12px;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    background: var(--primary);
-    border: 2px solid var(--background);
-  }
-
-  .timeline-marker {
-    display: none;
-  }
-
-  .timeline-content {
-    position: absolute;
-    left: calc(100% + 7px);
-    width: 280px;
-    padding: 1.25rem;
-    font-size: 1rem;
-    white-space: normal;
-    color: var(--foreground);
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    cursor: default;
-  }
-
-  .timeline-content:hover {
-    background-color: var(--card);
-    border-color: #3f3f46;
-  }
-
-  .timeline-content::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-  }
-
-  /* Odd items - top */
-  .timeline ol li:nth-child(odd) .timeline-content {
-    top: -16px;
-    transform: translateY(-100%);
-  }
-
-  .timeline ol li:nth-child(odd) .timeline-content::before {
-    top: 100%;
-    border-width: 8px 8px 0 0;
-    border-color: var(--card) transparent transparent transparent;
-  }
-
-  /* Even items - bottom */
-  .timeline ol li:nth-child(even) .timeline-content {
-    top: calc(100% + 16px);
-  }
-
-  .timeline ol li:nth-child(even) .timeline-content::before {
-    top: -8px;
-    border-width: 8px 0 0 8px;
-    border-color: transparent transparent transparent var(--card);
-  }
-
-  .timeline-title {
-    display: inline;
-    cursor: pointer;
-  }
-}
-
 /* Skills Tags */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .skill-tag {
@@ -408,4 +443,15 @@ p {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Link muted style */
+.link-muted {
+  font-size: 0.875rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.link-muted:hover {
+  color: var(--foreground);
 }

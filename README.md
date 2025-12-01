@@ -5,7 +5,7 @@ A pure HTML/CSS portfolio with a modern "shadcn-like" dark theme.
 ## Structure
 
 - `index.html`: Main portfolio page containing Bio, Experience Timeline, Projects, Skills, and Education.
-- `feed.html`: A blog feed page (optional).
+- `feed.html`: A blog feed page 
 - `experience/`: Contains detailed pages for each work experience.
 - `projects/`: Contains detailed pages for each project.
 - `posts/`: Directory for blog posts.

@@ -475,17 +475,36 @@ footer {
 }
 
 /* Hero Section with Headshot */
+/* Mobile: Stacked layout with Hello + headshot in same row */
 .hero-section {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+}
+
+.hero-header h1 {
+  margin-bottom: 0;
+  flex: 0 1 auto;
+  max-width: 60%;
 }
 
 .headshot-wrapper {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 100px;
+  height: 100px;
   flex-shrink: 0;
 }
 
@@ -494,7 +513,7 @@ footer {
   height: 100%;
   border-radius: 0%;
   object-fit: cover;
-  border: 3px solid var(--border);
+  border: 2px solid var(--border);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, border-color 0.3s;
   display: block;
@@ -524,20 +543,68 @@ footer {
 
 .hero-content {
   width: 100%;
-  text-align: center;
 }
 
+/* Show mobile headshot on mobile, hide desktop headshot */
+.headshot-desktop {
+  display: none;
+}
+
+.headshot-mobile {
+  display: block;
+}
+
+/* Desktop: Old side-by-side layout */
 @media (min-width: 640px) {
-  .hero-section {
-    flex-direction: row-reverse;
-    align-items: flex-start;
+  /* Hide mobile headshot, show desktop headshot */
+  .headshot-mobile {
+    display: none;
   }
-  
-  .headshot-wrapper {
+
+  .headshot-desktop {
+    display: block;
+  }
+
+  /* Main container: headshot on right, content on left */
+  .hero-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  /* Left side wrapper */
+  .hero-left {
+    flex: 1;
+    gap: 0;
+  }
+
+  /* Header at top left */
+  .hero-header {
+    display: block;
+  }
+
+  .hero-header h1 {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  /* Desktop headshot on right */
+  .headshot-wrapper.headshot-desktop {
+    width: 180px;
+    height: 180px;
     flex-shrink: 0;
   }
-  
+
+  .headshot-wrapper.headshot-desktop .headshot {
+    border: 3px solid var(--border);
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Content below header on left */
   .hero-content {
+    width: 100%;
     text-align: left;
   }
 }

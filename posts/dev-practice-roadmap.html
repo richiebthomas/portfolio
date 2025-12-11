@@ -1,0 +1,389 @@
+<!-- /index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Projects Roadmap</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<style>
+    /* Center all page content */
+body {
+    max-width: 900px;        /* keeps lines readable */
+    margin: 0 auto;          /* centers the content */
+    padding: 20px;
+    text-align: left;        /* keep text aligned normally */
+    font-family: Arial, sans-serif;
+}
+
+</style>
+
+<h1>Practice Projects Roadmap</h1>
+<p><strong>From "I can write code" to "I build full-stack applications"</strong></p>
+<hr>
+
+<h2>🎯 Overview</h2>
+<p>This roadmap contains <strong>12 progressively challenging projects</strong> with a gentle learning curve of approachable, practical applications. Each project builds incrementally on previous concepts.</p>
+<p><strong>Estimated Timeline:</strong> 6-8 months (2-3 weeks per project)</p>
+
+<hr>
+
+<h2>Phase 1: Foundation (Weeks 1-6)</h2>
+
+<h3>Project 1: TaskFlow CLI</h3>
+<p><strong>Difficulty:</strong> ⭐☆☆☆☆<br>
+<strong>Time:</strong> 1-2 weeks</p>
+
+<p>Build a command-line task manager with file persistence.</p>
+
+<p><strong>Core Features:</strong></p>
+<ul>
+    <li>Add/delete/update tasks with due dates and priorities</li>
+    <li>Mark tasks complete</li>
+    <li>Filter by status: <code>taskflow list --status pending --sort due</code></li>
+    <li>JSON file storage with auto-backup</li>
+    <li>Statistics dashboard: pending, completed, overdue counts</li>
+</ul>
+
+<p><strong>Tech Stack:</strong> Python (Click) or Node.js (Commander.js), JSON</p>
+
+<p><strong>Concepts Learned:</strong></p>
+<ul>
+    <li>File I/O and JSON serialization</li>
+    <li>Command-line argument parsing</li>
+    <li>Data structures</li>
+    <li>Basic error handling</li>
+</ul>
+
+<p><strong>Validation:</strong> Can you add 10 tasks, mark 3 complete, and filter by priority without bugs?</p>
+
+<hr>
+
+<h3>Project 2: WeatherSnap Dashboard</h3>
+<p><strong>Difficulty:</strong> ⭐⭐☆☆☆<br>
+<strong>Time:</strong> 1-2 weeks</p>
+
+<p>Create a web dashboard displaying real-time weather data.</p>
+
+<p><strong>Core Features:</strong></p>
+<ul>
+    <li>Fetch data from OpenWeather API</li>
+    <li>Display current conditions + 3-day forecast</li>
+    <li>Search by city with autocomplete</li>
+    <li>Cache results for 15 minutes</li>
+    <li>Save favorite cities to localStorage</li>
+    <li>Responsive design</li>
+</ul>
+
+<p><strong>Tech Stack:</strong> HTML/CSS/JS</p>
+
+<p><strong>Concepts Learned:</strong></p>
+<ul>
+    <li>REST APIs & HTTP</li>
+    <li>Async/await</li>
+    <li>DOM manipulation</li>
+    <li>Client-side caching</li>
+</ul>
+
+<p><strong>Validation:</strong> Can you search 5 cities and see cached vs fresh data?</p>
+
+<hr>
+
+<h3>Project 3: Markdown2Blog</h3>
+<p><strong>Difficulty:</strong> ⭐⭐☆☆☆<br>
+<strong>Time:</strong> 2 weeks</p>
+
+<p>Build a static site generator that converts Markdown to HTML.</p>
+
+<p><strong>Core Features:</strong></p>
+<ul>
+    <li>Front-matter parsing</li>
+    <li>Index page generation</li>
+    <li>Syntax highlighting</li>
+    <li>RSS feed creation</li>
+    <li>Sitemap generation</li>
+    <li>Deploy with GitHub Actions</li>
+</ul>
+
+<p><strong>Tech Stack:</strong> Python or Node.js</p>
+
+<p><strong>Validation:</strong> Write 5 posts and deploy a working blog.</p>
+
+<hr>
+
+<h2>Phase 2: Backend & Databases (Weeks 7-16)</h2>
+
+<h3>Project 4: Bookmark Manager API</h3>
+<p><strong>Difficulty:</strong> ⭐⭐⭐☆☆<br>
+<strong>Time:</strong> 2-3 weeks</p>
+
+<p>Create a RESTful API for managing bookmarks.</p>
+
+<pre><code>
+POST   /api/bookmarks
+GET    /api/bookmarks
+GET    /api/bookmarks/:id
+PUT    /api/bookmarks/:id
+DELETE /api/bookmarks/:id
+GET    /api/search?q=
+GET    /api/tags/:tag
+</code></pre>
+
+<p><strong>Concepts:</strong> REST, SQL, status codes, pagination.</p>
+
+<p><strong>Validation:</strong> Can you create 100 bookmarks and search efficiently?</p>
+
+<hr>
+
+<h3>Project 5: BudgetTracker Full-Stack App</h3>
+<p><strong>Difficulty:</strong> ⭐⭐⭐☆☆<br>
+<strong>Time:</strong> 3 weeks</p>
+
+<p>A complete expense tracking application.</p>
+
+<p><strong>Core Features:</strong></p>
+<ul>
+    <li>User auth</li>
+    <li>CRUD expenses</li>
+    <li>Monthly summaries + charts</li>
+    <li>CSV export</li>
+    <li>Responsive UI</li>
+</ul>
+
+<hr>
+
+<h3>Project 6: Recipe Sharing Platform</h3>
+<p><strong>Difficulty:</strong> ⭐⭐⭐⭐☆<br>
+<strong>Time:</strong> 3 weeks</p>
+
+<p>Platform for sharing recipes with images.</p>
+
+<ul>
+    <li>User profiles</li>
+    <li>Image upload</li>
+    <li>Search by ingredient</li>
+    <li>Ratings + reviews</li>
+    <li>Favorites</li>
+</ul>
+
+<hr>
+
+<h2>Phase 3: Real-time & Caching (Weeks 17-26)</h2>
+
+<h3>Project 7: Live Poll Application</h3>
+<p><strong>Difficulty:</strong> ⭐⭐⭐⭐☆<br>
+<strong>Time:</strong> 2 weeks</p>
+
+<ul>
+    <li>WebSockets</li>
+    <li>Real-time vote updates</li>
+    <li>Charts</li>
+    <li>QR sharing</li>
+</ul>
+
+<hr>
+
+<h3>Project 8: News Aggregator with Caching</h3>
+<p><strong>Difficulty:</strong> ⭐⭐⭐⭐☆<br>
+<strong>Time:</strong> 3 weeks</p>
+
+<ul>
+    <li>Multiple API integration</li>
+    <li>Deduplication</li>
+    <li>Redis caching</li>
+    <li>Daily email digests</li>
+</ul>
+
+<hr>
+
+<h3>Project 9: E-commerce Microservices Lite</h3>
+<p><strong>Difficulty:</strong> ⭐⭐⭐⭐⭐<br>
+<strong>Time:</strong> 4 weeks</p>
+
+<p>Two microservices + one frontend gateway.</p>
+
+<ul>
+    <li>Product service</li>
+    <li>Order service</li>
+    <li>React frontend</li>
+    <li>Docker Compose</li>
+</ul>
+
+<hr>
+
+<h2>Phase 4: Performance & Deployment (Weeks 27-36)</h2>
+
+<h3>Project 10: URL Shortener with Analytics</h3>
+<p><strong>Difficulty:</strong> ⭐⭐⭐⭐☆<br>
+<strong>Time:</strong> 2 weeks</p>
+
+<ul>
+    <li>Short URL generation</li>
+    <li>Click analytics</li>
+    <li>QR codes</li>
+</ul>
+
+<hr>
+
+<h3>Project 11: Job Board with Advanced Search</h3>
+<p><strong>Difficulty:</strong> ⭐⭐⭐⭐⭐<br>
+<strong>Time:</strong> 3 weeks</p>
+
+<ul>
+    <li>Full-text search</li>
+    <li>Geospatial queries</li>
+    <li>Autocomplete</li>
+</ul>
+
+<hr>
+
+<h3>Project 12: Full-Stack Social Dashboard (Capstone)</h3>
+<p><strong>Difficulty:</strong> ⭐⭐⭐⭐⭐<br>
+<strong>Time:</strong> 4 weeks</p>
+
+<ul>
+    <li>OAuth integrations</li>
+    <li>Scheduled posts</li>
+    <li>Unified analytics</li>
+    <li>Browser extension</li>
+</ul>
+
+<hr>
+
+<h2>📊 Learning Path Summary</h2>
+
+<table>
+    <tr>
+        <th>Phase</th>
+        <th>Duration</th>
+        <th>Projects</th>
+        <th>Key Skills</th>
+    </tr>
+    <tr>
+        <td>Foundation</td>
+        <td>Weeks 1-6</td>
+        <td>1-3</td>
+        <td>CLI, APIs, Static Sites, Git</td>
+    </tr>
+    <tr>
+        <td>Backend & Databases</td>
+        <td>Weeks 7-16</td>
+        <td>4-6</td>
+        <td>REST APIs, SQL, Full-Stack, Auth</td>
+    </tr>
+    <tr>
+        <td>Real-time & Caching</td>
+        <td>Weeks 17-26</td>
+        <td>7-9</td>
+        <td>WebSockets, Caching, Microservices</td>
+    </tr>
+    <tr>
+        <td>Performance & Deployment</td>
+        <td>Weeks 27-36</td>
+        <td>10-12</td>
+        <td>Search, Analytics, OAuth, Production</td>
+    </tr>
+</table>
+
+<hr>
+
+<h2>🎯 Gentle Learning Approach</h2>
+
+<h3>Weekly Structure:</h3>
+<ul>
+    <li>Study concepts</li>
+    <li>Implement features</li>
+    <li>Debug & test</li>
+    <li>Polish & deploy</li>
+</ul>
+
+<h3>Before Starting Each Project:</h3>
+<ol>
+    <li>Review prerequisites</li>
+    <li>Read docs</li>
+    <li>Create simple demos</li>
+    <li>Sketch architecture</li>
+</ol>
+
+<h3>When You Get Stuck:</h3>
+<ol>
+    <li>Take a break</li>
+    <li>Explain problem out loud</li>
+    <li>Make a minimal reproduction</li>
+    <li>Search solutions</li>
+    <li>Ask communities</li>
+</ol>
+
+<h3>Project Completion Checklist:</h3>
+<ul>
+    <li>All features working</li>
+    <li>Error handling</li>
+    <li>README written</li>
+    <li>GitHub repo updated</li>
+    <li>Live demo deployed</li>
+</ul>
+
+<hr>
+
+<h2>🚀 Getting Started Today</h2>
+
+<h3>Step 1: Choose your language stack</h3>
+<ul>
+    <li>Python: FastAPI, SQLAlchemy, Celery</li>
+    <li>JavaScript: Express, React, Prisma</li>
+</ul>
+
+<h3>Step 2: Setup environment</h3>
+<pre><code>
+mkdir cs-projects
+cd cs-projects
+mkdir 01-taskflow-cli
+cd 01-taskflow-cli
+git init
+</code></pre>
+
+<h3>Step 3: Build the simplest version</h3>
+<pre><code>
+# taskflow.py
+tasks = []
+def add_task(description):
+    tasks.append({"id": len(tasks)+1, "description": description, "done": False})
+    print("Added:", description)
+</code></pre>
+
+<hr>
+
+<h2>📚 Learning Resources</h2>
+
+<ul>
+    <li>FreeCodeCamp</li>
+    <li>MDN Docs</li>
+    <li>SQLZoo</li>
+    <li>FullStackOpen</li>
+    <li>Docker docs</li>
+</ul>
+
+<hr>
+
+<h2>🎓 Final Advice</h2>
+<ul>
+    <li>Focus on finishing projects</li>
+    <li>Build in public</li>
+    <li>Document lessons learned</li>
+</ul>
+
+<hr>
+
+<h2>🆘 Need Help?</h2>
+<ul>
+    <li>Check GitHub Issues</li>
+    <li>Ask ChatGPT/Gemini for explanations</li>
+    <li>Join Discord groups</li>
+    <li>Pair program</li>
+</ul>
+
+<p><strong>You can do this. One line of code at a time.</strong></p>
+
+</body>
+</html>
